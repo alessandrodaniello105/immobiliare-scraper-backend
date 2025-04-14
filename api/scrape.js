@@ -23,6 +23,12 @@ const BASE_HEADERS = {
     'Upgrade-Insecure-Requests': '1',
     'Cache-Control': 'max-age=0',
 };
+
+const PROXY_HOST = '185.199.231.45';
+const PROXY_PORT = '8382';
+const PROXY_USER = 'jgvnfgna';
+const PROXY_PWD = 'qusdss57vicn';
+
 // --- End Configuration ---
 
 // --- Helper Functions (Copied from server.js) ---
@@ -60,7 +66,10 @@ export default async function handler(request, response) {
         console.log("Launching browser...");
         // Launch Puppeteer using @sparticuz/chromium
         browser = await puppeteer.launch({
-            args: chromium.args,
+            args: [ 
+                `--proxy-server=http://${PROXY_USER}:${PROXY_PWD}@${PROXY_HOST}:${PROXY_PORT}`,
+                ...chromium.args 
+            ],
             defaultViewport: chromium.defaultViewport,
             executablePath: await chromium.executablePath(), // <-- Use await and call as function
             headless: chromium.headless, // Use 'new' headless mode if supported/needed, otherwise use boolean
