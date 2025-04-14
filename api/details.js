@@ -66,6 +66,7 @@ export default async function handler(request, response) {
                         'N/A';
         details.address = $('[data-testid="address"]').first().text().trim() ||
                           $('.in-location span').first().text().trim() ||
+                          $('.ld-title__content').first().text().trim() ||
                           'N/A';
         let descriptionContainer = $('.in-readAll');
         if (descriptionContainer.length > 0) {
@@ -75,7 +76,10 @@ export default async function handler(request, response) {
              }
              details.description = descElement.text().trim() || 'N/A';
          } else {
-             details.description = $('[data-testid="description"]').text().trim() || 'N/A';
+             details.description = $('[data-testid="description"]').text().trim() || 
+                                   $('[data-testid="description"]').text().trim() || 
+                                   $('.in-readAll').first().text().trim() ||
+                                   'N/A';
          }
         details.features = [];
         $('[data-testid="features"] dl.im-features__list, dl.in-features__list, dl.nd-list--features').children().each((i, el) => {

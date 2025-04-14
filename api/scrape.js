@@ -1,14 +1,9 @@
-// Change require to import for puppeteer setup
 import chromium from '@sparticuz/chromium';
 import puppeteer from 'puppeteer-core';
-
-// Use import for other modules if project is type: "module"
-import axios from 'axios'; // Still needed for details potentially, keep for now
+import { sql } from '@vercel/postgres';
 import * as cheerio from 'cheerio';
 import url from 'url';
-import { sql } from '@vercel/postgres';
 
-// --- Configuration (Copied from server.js, consider moving to shared location) ---
 const VENDOR_URL = "https://www.immobiliare.it/agenzie-immobiliari/12328/nicoletta-zaggia-padova/";
 const TARGET_TAG = "li";
 const TARGET_CLASS = "nd-list__item";
