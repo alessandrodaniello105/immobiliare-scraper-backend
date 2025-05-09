@@ -24,10 +24,10 @@ const BASE_HEADERS = {
     'Cache-Control': 'max-age=0',
 };
 
-const PROXY_HOST = '185.199.231.45';
-const PROXY_PORT = '8382';
-const PROXY_USER = 'jgvnfgna';
-const PROXY_PWD = 'qusdss57vicn';
+//const PROXY_HOST = '185.199.231.45';
+//const PROXY_PORT = '8382';
+//const PROXY_USER = 'jgvnfgna';
+//const PROXY_PWD = 'qusdss57vicn';
 
 // --- End Configuration ---
 
@@ -67,7 +67,7 @@ export default async function handler(request, response) {
         // Launch Puppeteer using @sparticuz/chromium
         browser = await puppeteer.launch({
             args: [ 
-                `--proxy-server=http://${PROXY_USER}:${PROXY_PWD}@${PROXY_HOST}:${PROXY_PORT}`,
+                //`--proxy-server=http://${PROXY_USER}:${PROXY_PWD}@${PROXY_HOST}:${PROXY_PORT}`,
                 ...chromium.args 
             ],
             defaultViewport: chromium.defaultViewport,
