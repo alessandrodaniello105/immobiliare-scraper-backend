@@ -124,7 +124,13 @@ export default async function handler(request, response) {
 
         // 2. Scrape current listings
         let scrapedListings = [];
-        $(`${TARGET_TAG}.${TARGET_CLASS.split(' ').join('.')}`).each((i, element) => {
+        // The selector combines TARGET_TAG and TARGET_CLASS to find listing elements
+        // For example, if TARGET_TAG is 'li' and TARGET_CLASS is 'listing-item featured',
+        // the selector would be 'li.listing-item.featured'
+        const listingElements = $(`${TARGET_TAG}.${TARGET_CLASS.split(' ').join('.')}`);
+        console.log(`Found ${listingElements.length} listing elements with selector: ${TARGET_TAG}.${TARGET_CLASS.split(' ').join('.')}`);
+        
+        listingElements.each((i, element) => {
             const linkTag = $(element).find(LINK_TAG_SELECTOR);
             const priceTag = $(element).find(PRICE_SELECTOR);
             if (linkTag.length > 0) {
