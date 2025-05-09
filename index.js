@@ -1,10 +1,20 @@
 // index.js - Combined Server for Render Web Service
-import express from 'express';
-import cors from 'cors';
-import { sql } from '@vercel/postgres'; // Use Vercel Postgres SDK
-import listingsRouter from './api/listings.js';
-import scrapeRouter from './api/scrape.js';
-import detailsRouter from './api/details.js';
+//import express from 'express';
+//import cors from 'cors';
+//import { sql } from '@vercel/postgres'; // Use Vercel Postgres SDK
+//import listingsRouter from './api/listings.js';
+//import scrapeRouter from './api/scrape.js';
+//import detailsRouter from './api/details.js';
+
+
+const express = require('express');
+const cors = require('cors')
+const { sql } = require('@vercel/postgres'); // Use Vercel Postgres SDK
+const listingsRouter = require('./api/listings.js');
+const scrapeRouter = require('./api/scrape.js');
+const detailsRouter = require('./api/details.js');
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
