@@ -6,7 +6,7 @@ import url from 'url';
 
 const VENDOR_URL = "https://www.immobiliare.it/agenzie-immobiliari/12328/nicoletta-zaggia-padova/";
 const TARGET_TAG = "li";
-const TARGET_CLASS = "nd-list__item";
+const TARGET_CLASS = "in-searchLayoutListItem";
 const LINK_TAG_SELECTOR = "a.in-listingCardTitle";
 const PRICE_SELECTOR = "div.in-listingCardPrice span, div.in-listingCardPrice";
 const USER_AGENTS = [
