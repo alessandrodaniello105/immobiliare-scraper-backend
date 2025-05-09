@@ -84,7 +84,8 @@ export default async function handler(request, response) {
         await page.setRequestInterception(true);
         page.on('request', (request) => {
             const resourceType = request.resourceType();
-            if (resourceType === 'image' || resourceType === 'stylesheet' || resourceType === 'font') {
+            // if (resourceType === 'image' || resourceType === 'stylesheet' || resourceType === 'font') {
+            if (resourceType === 'font') {
                 request.abort();
             } else {
                 request.continue();
